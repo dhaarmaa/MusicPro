@@ -1,53 +1,45 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+//import { Link } from 'react-router-dom';
+import { FormOfProduct } from '../../component/Form';
+import db from '../../applicacion/Firebase';
 
 const ProductIncome = () => {
 
-    const [values, setValues] = useState({
-        name: "",
-        codigo:'',
-        stock: ''
-    })
+      const [products, setProduct] = useState([])
 
-    // const handleInputChange = e =>{
-    //     console.log(e.target.values)
-    // }
 
-    const handleInputChange = e =>{
-        const { name, value } = e.target;
-        setValues({
-            ...values,
-            [name]: value
-        });
-    }
-    
+      const addProduct = async (productObject) =>{
+      //const addProduct = (productObject) =>{
+            console.log('new Product')
+            await db.collection('product').doc().set(productObject)
 
-    const handleSubmit = e =>{
-        e.preventDefault()
-        console.log(values)
-    }
-    return(
-      
-        <div>
-            <h1>Entrada de producto</h1>
-        
-            <form onSubmit={handleSubmit}>
-                <h3>Nombre</h3>
-                <input type="text" name="name" onChange={handleInputChange} />
-    
-                <h3>Codigo</h3>
-                <input type="text" name="codigo" onChange={handleInputChange} />
-    
-                <h3>Stock</h3>
-                <input type="number" name="stock" onChange={handleInputChange} />
-    
-                <br />
-                <button>Ingresar</button>
-               
-            </form>
-            <button><Link to={`/`}>atras</Link></button>
+      }
+      //traer los datos
+      const getProduct = async ()=>{
+            await db.collection('product').onSnapshot((querySnapshot)=>{
+                  const docs = [];
+                  querySnapshot.array.forEach(doc => {
+                        console.log(doc.data())
+                        
+                        docs.push({...doc.data(), id:doc.id });
+                  })  
+                  console.log(docs)    
+                  setProduct(docs);   
+            });
+      }
+
+      useEffect(()=>{
+            console.log('getting data...')
+            getProduct();
+      }, [])
+   return(
+      <div>
+            <FormOfProduct addProduct = {addProduct}/>
+            <div>
+           
+            </div>
             
-        </div>
-    )
+      </div>
+   )
 }
 export default ProductIncome;
