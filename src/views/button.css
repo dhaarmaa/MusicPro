@@ -1,0 +1,17 @@
+.mi-boton {
+    background-color: #4CAF50; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 12px 24px; /* Espacio interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Visualización como bloque en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor de tipo puntero */
+    transition: background-color 0.3s ease; /* Transición de color de fondo */
+  }
+  
+  .mi-boton:hover {
+    background-color: #3e8e41; /* Color de fondo en estado de hover */
+  }

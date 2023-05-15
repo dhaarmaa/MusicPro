@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Buttons from '../../component/Buttons';
+import '../button.css'
 
 const Home = () => 
 
@@ -8,10 +8,8 @@ const Home = () =>
     <h1>Almacenamiento</h1>
 
     <div>
-        <button><Link to={`/Entrada`}>Ingreso de producto</Link></button>
+        <button className="mi-boton"><Link to={`/Entrada`}>Ingreso de producto</Link></button>
         <button><Link to={`/Salida`}>Salida de producto</Link></button>
     </div>
-    <Buttons/>
-   
 </div>;
 export default Home;
