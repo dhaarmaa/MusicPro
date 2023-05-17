@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from "./applicacion/Firebase";
+//import firebase from "./applicacion/Firebase";
 import Routes from './applicacion/routes';
 
 const App = () => <Routes/>;
