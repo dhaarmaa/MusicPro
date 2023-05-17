@@ -3,6 +3,9 @@ import Home from '../views/home';
 //import Page2 from '../views/page2';
 import ProductIncome from '../views/productIncome';
 import ProductOutput from '../views/productOutput';
+import Login from '../views/Auth/login';
+import Register from '../views/Auth/register';
+//import Profile from '../views/Auth/profile';
 
 const Router = () => (
     <BrowserRouter>
@@ -11,6 +14,9 @@ const Router = () => (
             {/* <Route path="/page2/" element={<Page2/>} /> */}
             <Route path="/Entrada" element= {<ProductIncome/>}/>
             <Route path="/Salida" element= {<ProductOutput/>}/>
+            <Route path="/Login" element= {<Login/>}/>
+            <Route path="/Register" element= {<Register/>}/>
+            {/* <Route path="/Profile" element= {<Profile/>}/> */}
              { /* Es muy recomendable añadir esta ruta para obtener un mensaje de error en el caso de que la ruta no exista. De lo contrario, si la ruta no existe llegaremos a una página en blanco */}    
             <Route path="*" element={<div>404</div> } />
         </Routes>
