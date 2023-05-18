@@ -47,7 +47,7 @@ const Home = () => {
           </a>
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="#">Perfil</a></li>
-            <li><a className="dropdown-item" href="#">Cerrar Sesion</a></li>
+            <li><a className="dropdown-item" href="Login">Cerrar Sesion</a></li>
           </ul>
         </li>
       </ul>
